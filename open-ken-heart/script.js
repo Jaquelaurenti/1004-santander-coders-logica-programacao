@@ -1,68 +1,68 @@
 // IMplementar um controle de estado que determina se o Ken vai abrir o coração ou não de acordo com o amor da barbie
-// Importante: rodar o script no console do navegador para ver o resultado com CSS aplicado
 
-let barbieLove = 0;
+let barbieLove = Math.floor((Math.random() * 100)) + 1;
+
 let isKenHeartOpen = false;
-let css = "{background-color: pink, color: white; font-size: 24px; font-weight: bold; padding: 8px;}"
 
 function hugKen() {
     let message = {
-        friend: "%c Ken curtiu o abraço da Barbie",
-        date: "%c Ken abraçou a Barbie de volta",
-        date: "%c Ken abraçou a Barbie, olhos nos olhos",
+        friend: "Ken curtiu o abraço da Barbie",
+        date: "Ken abraçou a Barbie de volta",
+        love: "Ken abraçou a Barbie, olhos nos olhos",
     }
-    if (barbieLove < 40) {
-        barbieLove += 40;
-        return console.log(message.friend, css);
-    } else if (barbieLove <= 40) {
-        barbieLove += 20;
-        return console.log(message.date, css);
+    if (barbieLove <= 40) {
+        barbieLove += 41;
+        return console.log(message.friend);
+    } else if (barbieLove <= 50) {
+        barbieLove += 10;
+        return console.log(message.date);
     } else if (barbieLove <= 60) {
-        return console.log(message.love, css);
+        barbieLove += 10;
+        return console.log(message.love);
     }
 }
 
 function kissKen() {
     let message = {
-        friend: "%c Ken ficou confuso com o beijo da Barbie",
-        date: "%c Ken devolveu o beijo da Barbie",
-        love: "%c Ken beijou a Barbie com amor",
+        friend: "Ken ficou confuso com o beijo da Barbie",
+        date: "Ken devolveu o beijo da Barbie",
+        love: "Ken beijou a Barbie com amor",
     }
-    if (barbieLove <= 60) {
+    if (barbieLove <= 70) {
         barbieLove += 10;
-        return console.log(message.friend, css);
-    } else if (barbieLove <= 70) {
+        return console.log(message.friend);
+    } else if (barbieLove <= 80) {
         barbieLove += 10;
-        return console.log(message.date,css);
+        return console.log(message.date);
     } else if (barbieLove < 100) {
         barbieLove += 20;
-        return console.log(message.love, css);
+        return console.log(message.love);
     }
 }   
 
 function openKenHeart() {
-    console.log("%c Ken abriu o coração!", css);
+    console.log("Ken abriu o coração!");
     isKenHeartOpen = true;
     letsGoParty();
 }
 
 function letsGoParty() {
-    let fun = (Math.random() * 100).toFixed(0);
-    console.log("%c Barbie chamou o Ken para entrar e tomar uma xícara de café depois da festa", css);
-    if (fun > 80) {
+    let fun = Math.floor((Math.random() * 100));
+    console.log("Barbie chamou o Ken para entrar e tomar uma xícara de café depois da festa");
+    if (fun > 70) {
         goingInside();
     } else {
-        return console.log("%c Ken disse que não toma café.", css);
+        return console.log("Ken disse que não toma café.");
     }
 }
 
-
 function goingInside() {
-    return console.log("%c Ken disse que aceita, se não for nenhum incômodo.", css);
+    return console.log("Ken disse que aceita, se não for nenhum incômodo.");
 }
 
 while (!isKenHeartOpen) {
-    if (barbieLove < 59) {
+    console.log(barbieLove)
+    if (barbieLove <= 60) {
         hugKen();
     } else if ((barbieLove < 100)) {
         kissKen();
