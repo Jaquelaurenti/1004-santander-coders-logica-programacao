@@ -11,7 +11,7 @@ function abrirModal() {
 }
 
 console.log("Fora da função");
-console.log("Valor da variável", modalAberto); /
+console.log("Valor da variável", modalAberto);
 
 function fecharModal() {
   modalAberto = false; // atualizandoo ESTADO do modal para falso ou seja, modal fechado
