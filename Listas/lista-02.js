@@ -364,71 +364,279 @@ function getPrimosAte(number) {
     
     return primos;
 }
-console.log(getPrimosAte(100000)); //Execution time: 1753 ms
+// console.log(getPrimosAte(100000)); //Execution time: 1325 ms
 
 /* 28- Escreva um código JavaScript que utilize um laço de repetição while para imprimir os números pares de 0 a 10.  */
+function printNumerosParesWhile(min, max) {
+    let numerosPares = [];
+    let i = min;
+    while (i <= max) {
+        if (i % 2 === 0) {
+            numerosPares.push(i);
+        }
+        i++;
+    }
+    return numerosPares;
+}
+// console.log(printNumerosParesWhile(0, 10)); // [0, 2, 4, 6, 8, 10]
 
-/* 29- Escreva um código JavaScript que solicite ao usuário um número e utilize um laço de repetição do-while para verificar se o número inserido é uma potência de 2.
+/* 29- Escreva um código JavaScript que solicite ao usuário um número e utilize um laço de repetição do-while para verificar se o número inserido é uma potência de 2. */
+function isPotenciaDeDois() {
+    let numero = parseInt(prompt("Digite um número:"));
+    if(numero < 1 || numero === undefined || numero === null || numero === NaN) {
+        return 'Obrigado!';
+    }
 
-30- Escreva um código JavaScript que utilize um laço de repetição while para calcular a soma dos números de 1 a 100 e exiba o resultado.
+    let potenciaDeDois = 1;
+    do {
+        potenciaDeDois *= 2;
+    } while (potenciaDeDois < numero);
 
-### Condicionais
+    return potenciaDeDois === numero;
+}
+// window.addEventListener('load', alert(isPotenciaDeDois() ? `Potência de dois`: `Não é potência de dois`)); // Precisa executar no console do navegador em index.html
 
-31- Verificação de vogal ou consoante
+/* 30- Escreva um código JavaScript que utilize um laço de repetição while para calcular a soma dos números de 1 a 100 e exiba o resultado. */
+function sumNumerosWhile(min,max) {
+    let soma = 0;
+    let i = min;
+    while (i <= max) {
+        soma += i;
+        i++;
+    }
+    return soma;
+}
+// console.log(sumNumerosWhile(1, 100)); // 5050
 
+/* ### Condicionais */
+
+/* 31- Verificação de vogal ou consoante
 Peça ao usuário para digitar uma letra.
 Use uma estrutura condicional para verificar se a letra é uma vogal ou uma consoante.
-Exiba uma mensagem indicando se a letra é uma vogal ou consoante.
+Exiba uma mensagem indicando se a letra é uma vogal ou consoante. */
+function isVogal() {
+    const letra = prompt("Digite uma letra:").toLowerCase();
+    if(letra === undefined || letra === null || letra === NaN) {
+        return 'Obrigado!';
+    }
 
-32- Calculadora simples
+    const vogais = ['a', 'e', 'i', 'o', 'u'];
+    return vogais.includes(letra);
+}
+// window.addEventListener('load', alert(isVogal() ? `É uma vogal`: `Não é uma vogal`)); // Precisa executar no console do navegador em index.html
 
+/* 32- Calculadora simples
 Peça ao usuário para digitar dois números e uma operação matemática (+, -, *, /).
 Use uma estrutura condicional para realizar a operação selecionada nos números dados.
-Exiba o resultado da operação.
+Exiba o resultado da operação. */
+function calcOperacaoMatematica() {
+    const prompt1 = prompt("Digite um número (ex.: 2):");
+    const numero1 = prompt1 ? parseInt(prompt1) : prompt1;
+    const prompt2 = prompt("Digite outro número (ex.: 5) :");
+    const numero2 = prompt2 ? parseInt(prompt2) : prompt2;
+    const prompt3 = prompt("Digite uma operação matemática ( + , - , * ou / ):");
+    const operacao = ['+', '-', '*', '/'].includes(prompt3) ? prompt3 : undefined;
 
-33- Verificação de número primo
+    if(numero1 === undefined || numero2 === undefined || operacao === undefined) {
+        return 'Obrigado!';
+    }
+    switch (operacao) {
+        case '+':
+            return numero1 + numero2;
+        case '-':
+            return numero1 - numero2;
+        case '*':
+            return numero1 * numero2;
+        case '/':
+            if (numero2 === 0) {
+                return 'Divisão por zero!';
+            }
+            return numero1 / numero2;
+        default:
+            return 'Operação inválida!';
+    }
+}
+// window.addEventListener('load', alert(calcOperacaoMatematica())); // Precisa executar no console do navegador em index.html
 
+
+/* 33- Verificação de número primoalmoço
 Peça ao usuário para digitar um número.
 Use uma estrutura condicional para verificar se o número é primo (divisível apenas por 1 e por ele mesmo).
-Exiba uma mensagem indicando se o número é primo ou não.
+Exiba uma mensagem indicando se o número é primo ou não. */
+function getPrimoOrNot() {
+    const number = parseInt(prompt("Digite um número:"));
 
-34- Conversão de temperatura
+    let divisores = 0;
+    for (let i = 2; i <= number && divisores < 2; i++) {
+        if (number % i === 0) {
+            divisores++;
+        }
+    }
 
+    let mensagem = ''
+    if (divisores === 1) {
+        mensagem = `${number} é um número primo`;
+    } else {
+        mensagem = `${number} *não* é um número primo`;
+    }
+
+    return mensagem;
+}
+// window.addEventListener('load', alert(getPrimoOrNot())); // Precisa executar no console do navegador em index.html
+
+/* 34- Conversão de temperatura
 Peça ao usuário para digitar uma temperatura em graus Celsius.
 Use uma estrutura condicional para converter a temperatura para Fahrenheit ou Kelvin, de acordo com a escolha do usuário.
-Exiba o resultado da conversão.
+Exiba o resultado da conversão. */
+function getTemperatura() {
+    const temperatura = parseInt(prompt("Digite uma temperatura em graus Celsius:"));
+    const escala = parseInt(prompt("Digite uma escala de temperatura (1 Fahrenheit ou 2 Kelvin):"));
+    if (![1, 2].includes(escala)) {
+        return 'Escala inválida!';
+    }
 
-35- Dia da semana por extenso
+    let temperaturaConvertida = 0;
+    if (escala === 1) {
+        temperaturaConvertida = (temperatura * 9 / 5) + 32;
+    } else if (escala === 2) {
+        temperaturaConvertida = temperatura + 273.15;
+    }
 
+    return `${temperatura}°C equivale a ${temperaturaConvertida}°${escala === 1 ? 'F' : 'K'}`;
+}
+// window.addEventListener('load', alert(getTemperatura())); // Precisa executar no console do navegador em index.html
+
+/* 35- Dia da semana por extenso
 Peça ao usuário para digitar um número de 1 a 7 representando um dia da semana.
-Use uma estrutura condicional switch para exibir o nome completo do dia da semana correspondente ao número digitado.
+Use uma estrutura condicional switch para exibir o nome completo do dia da semana correspondente ao número digitado. */
+function getDiaDaSemana() {
+    const dia = parseInt(prompt("Digite um número de 1 a 7 representando um dia da semana:"));
 
-36- Verificação de ano bissexto
+    switch(dia) {
+        case 1:
+            return 'Domingo';
+        case 2:
+            return 'Segunda-feira';
+        case 3:
+            return 'Terça-feira';
+        case 4:
+            return 'Quarta-feira';
+        case 5:
+            return 'Quinta-feira';
+        case 6:
+            return 'Sexta-feira';
+        case 7:
+            return 'Sábado';
+        default:
+            return 'Dia inválido!';
+    }
+}
+// window.addEventListener('load', alert(getDiaDaSemana())); // Precisa executar no console do navegador em index.html
 
+/* 36- Verificação de ano bissexto
 Peça ao usuário para digitar um ano.
 Use uma estrutura condicional para verificar se o ano é bissexto (divisível por 4 e não por 100, exceto se for divisível por 400).
-Exiba uma mensagem indicando se o ano é bissexto ou não.
+Exiba uma mensagem indicando se o ano é bissexto ou não. */
+function isBissexto() {
+    const ano = parseInt(prompt("Digite um ano:"));
+    if(!ano) {
+        return 'Obrigado!';
+    }
 
-37- Contador de vogais e consoantes
+    if (ano % 100 === 0) {  
+        return `${ano} não é um ano bissexto`;
+    } else if (ano % 100 === 0 && ano % 400 === 0) {
+        return `${ano} é um ano bissexto`;
+    } else if (ano % 4 === 0) {
+        return `${ano} é um ano bissexto`;
+    }
+}
+// window.addEventListener('load', alert(isBissexto())); // Precisa executar no console do navegador em index.html
 
+/* 37- Contador de vogais e consoantes
 Peça ao usuário para digitar uma palavra ou frase.
 Use uma estrutura condicional para contar o número de vogais e consoantes na entrada.
-Exiba os resultados separadamente.
+Exiba os resultados separadamente. */
+function countVogaisEConsoantes() {
+    const palavra = prompt("Digite uma palavra ou frase:").toLowerCase();
+    if(!palavra) {
+        return 'Obrigado!';
+    }
+    const consoantes = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm','n','p','q','r','s','t','v','w','x','y','z'];
+    let consoantesCount = 0;
+    const vogais = ['a', 'e', 'i', 'o', 'u'];
+    let vogaisCount = 0;
+    for (let letra of palavra) {
+        if (vogais.includes(letra)) {
+            vogaisCount++;
+        } else if (consoantes.includes(letra)) {
+            consoantesCount++;
+        }
+    }
 
-38- Verificação de número positivo, negativo ou zero
+    return `
+        A palavra/frase "${palavra}" tem:
+            * ${vogaisCount} vogais;
+            * ${consoantesCount} consoantes.        
+    `;
+}
+// window.addEventListener('load', alert(countVogaisEConsoantes())); // Precisa executar no console do navegador em index.html
 
+/* 38- Verificação de número positivo, negativo ou zero
 Peça ao usuário para digitar um número.
 Use uma estrutura condicional para verificar se o número é positivo, negativo ou zero.
-Exiba uma mensagem indicando a natureza do número.
+Exiba uma mensagem indicando a natureza do número. */
+function getNumberMode(number) {
+    if (number > 0) {
+        return 'positivo';
+    } else if (number < 0) {
+        return 'negativo';
+    } else if (number === 0) {
+        return 'zero';
+    } else {
+        return 'Número inválido!';
+    }
+}
+// window.addEventListener('load', alert(getNumberMode(parseInt(prompt("Digite um número:"))))); // Precisa executar no console do navegador em index.html
 
-39- Sistema de bilhete de cinema
-
+/* 39- Sistema de bilhete de cinema
 Peça ao usuário para digitar sua idade e se tem cartão de estudante (responda com "sim" ou "não").
 Use uma estrutura condicional para determinar o preço do bilhete de cinema de acordo com as regras: menores de 18 anos pagam $5, estudantes pagam $8 e os demais pagam $10.
-Exiba o preço do bilhete.
+Exiba o preço do bilhete. */
+function getPrecoCinema() {
+    const idade = parseInt(prompt("Digite sua idade:"));
+    const promptEstudante = parseInt(prompt("Tem cartão de estudante? (digite 1 para Sim ou 2 para Não):"));
+    
+    const estudante = [1,2].includes(promptEstudante) ? promptEstudante : undefined;
+    if(!idade || !estudante) {
+        return 'Obrigado!';
+    }
 
-40- Verificação de palíndromo
+    let preco = 0;
+    if (idade < 18) {
+        preco = 5;
+    } else if (estudante === 1) {
+        preco = 8;
+    } else {
+        preco = 10;
+    }
 
+    return `O preço do bilhete é R$ ${preco}`;
+}
+// window.addEventListener('load', alert(getPrecoCinema())); // Precisa executar no console do navegador em index.html
+
+/* 40- Verificação de palíndromo
 Peça ao usuário para digitar uma palavra ou frase.
 Use uma estrutura condicional para verificar se a entrada é um palíndromo (lê-se igual de trás para frente e de frente para trás).
 Exiba uma mensagem indicando se a entrada é um palíndromo ou não. */
+function isPalindromo() {
+    const palavra = prompt("Digite uma palavra ou frase:").toLowerCase();
+    if(!palavra) {
+        return 'Obrigado!';
+    }
+
+    const palavraReversa = palavra.split('').reverse().join('');
+
+    return palavra === palavraReversa ? `${palavra} é um palíndromo` : `${palavra} *não* é um palíndromo`;
+}
+// window.addEventListener('load', alert(isPalindromo())); // Precisa executar no console do navegador em index.html
