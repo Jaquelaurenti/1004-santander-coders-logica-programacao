@@ -21,7 +21,9 @@ Aqui estão as diretrizes para a implementação do jogo:
 [  ] Divida a implementação do jogo em funções para tornar o código mais organizado e modular.
 
 [  ] Considere como lidar com letras repetidas na palavra escolhida.
-Use arrays para rastrear as letras adivinhadas e a posição delas na palavra.
+
+[  ] Use arrays para rastrear as letras adivinhadas e a posição delas na palavra.
+
 [  ] Dê estilo ao jogo usando CSS para melhorar a experiência visual. (OPCIONAL)
 
 Lembre-se de que a implementação do jogo de forca pode variar em complexidade, então sinta-se à vontade para adicionar recursos extras ou personalizações conforme desejar.
