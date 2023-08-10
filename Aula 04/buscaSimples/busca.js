@@ -4,7 +4,7 @@
 
 
 
-function buscaSimples(vetor, valorProcurado) { 
+export function buscaSimples(vetor, valorProcurado) { 
   let indice = undefined;
 
   for(let i = 0; i< vetor.length; i++) {
