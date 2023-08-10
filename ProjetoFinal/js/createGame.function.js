@@ -1,5 +1,7 @@
-async function startGame() {
-    const palavra = await getPalavra();
+import { getWord } from './getWord.function.js';
+
+function createGame() {
+    const palavra = getWord();
     if (palavra) {
         console.log('Random word:', palavra);
         // Now you can continue with your Hangman game logic using the fetched word
@@ -8,4 +10,4 @@ async function startGame() {
     }
 }
 
-startGame();
+export { createGame };
