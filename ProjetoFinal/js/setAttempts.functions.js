@@ -29,7 +29,6 @@ function handleLetterFound(button) {
 
     if (attempts < 1) {
         alert('Perdeeeeeeeeu!')
-        window.location.reload();
     }
 
     if (document.querySelectorAll('.letter.hidden').length === 0) {
