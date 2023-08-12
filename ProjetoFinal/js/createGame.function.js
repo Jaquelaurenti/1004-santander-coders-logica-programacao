@@ -13,7 +13,7 @@ export function createGame() {
         throw new Error('Error generating letters');
     }
 
-    const attempts = setAttempts();
+    const attempts = setAttempts(letters);
 
     return true;
 }
