@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Forca</title>
     <style>
-        .hidden { display: none; }
+        .letter {
+            background-color: white;
+            color: black;
+            display:inline-block;
+            font-family: monospace;
+            font-size: 2em;
+            border-bottom: 1px solid black;
+            margin-left: 1px;
+        }
+        .hidden {
+            /* display: none; */
+            background-color: lightgray;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <div id='palavra'></div>
+    <p>Tentativas: <span class="attempts">0</span></p>
+    <p>Erros: <span class="errors">0</span></p>
+    <div id="buttons">
+        <!-- create button "A" to be listened by JS -->
+        <button id="a" type="button" class="letter-button">a</button>
+        <button id="z" type="button" class="letter-button">z</button>
+    </div>
+    <div id='word'></div>
     <script type="module" src="js/script.js"></script>
 </body>
 </html>

@@ -1,8 +1,16 @@
-const palavraDiv = document.querySelector('#palavra');
-for (let i = 0; i < palavra.length; i++) {
-    const letraDiv = document.createElement('div');
-    letraDiv.classList.add('letra');
-    letraDiv.id = `letra-${i}`;
-    letraDiv.textContent = palavra[i];
-    palavraDiv.appendChild(letraDiv);
+export function createLettersElements(word) {
+    const wordDiv = document.querySelector('#word');
+    
+    for (let i = 0; i < word.length; i++) {
+        const letterDiv = document.createElement('div')
+            
+        letterDiv.classList.add('letter')
+        letterDiv.classList.add('hidden')
+        letterDiv.id = `letter-${i}`
+        letterDiv.textContent = word[i]
+        
+        wordDiv.appendChild(letterDiv)
+    }
+
+    return wordDiv;
 }
