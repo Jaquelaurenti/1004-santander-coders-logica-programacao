@@ -2,12 +2,18 @@ import { getWord } from './getWord.function.js';
 
 function createGame() {
     const palavra = getWord();
-    if (palavra) {
-        console.log('Random word:', palavra);
-        // Now you can continue with your Hangman game logic using the fetched word
-    } else {
-        console.log('Failed to fetch a random word.');
+
+    const palavraDiv = document.querySelector('#palavra');
+    for (let i = 0; i < palavra.length; i++) {
+        const letraDiv = document.createElement('div');
+        letraDiv.classList.add('letra');
+        letraDiv.classList.add('hidden');
+        letraDiv.id = `letra-${i}`;
+        letraDiv.textContent = palavra[i];
+        palavraDiv.appendChild(letraDiv);
     }
+
+    return true;
 }
 
 export { createGame };
