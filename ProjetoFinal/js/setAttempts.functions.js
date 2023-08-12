@@ -1,24 +1,70 @@
 let attemptsCount = parseInt(document.getElementById('attempts').textContent);
+let letterFound = false;
 
 export function setAttempts() {
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
             button.disabled = true;
 
-            handleLetterFound(button);
+            handleLetter(button);
         });
     });
 
-    return;
+    return attemptsCount;
 }
 
-function handleLetterFound(button) { 
-    let letterFound = false;
+function handleLetter(button) { 
     document.querySelectorAll('.letter').forEach(letter => {
+    /*         
         if (letter.textContent === button.id) {
             letterFound = true;
             letter.classList.remove('hidden');
         }
+    */
+
+   switch (letter.textContent) {
+        case 'a':
+        case 'á':
+        case 'ã':
+        case 'â':
+            if (button.id === 'a') {
+                handleLetterFound(letter)
+            }
+            break;
+        case 'e':
+        case 'é':
+        case 'ê':
+            if (button.id === 'e') {
+                handleLetterFound(letter)
+            }
+            break;
+        case 'i':
+        case 'í':
+            if (button.id === 'i') {
+                handleLetterFound(letter)
+            }
+            break;
+        case 'o':
+        case 'ó':
+        case 'ô':
+        case 'õ':
+            if (button.id === 'o') {
+                handleLetterFound(letter)
+            }
+            break;
+        case 'u':
+        case 'ú':
+        case 'ü':
+            if (button.id === 'u') {
+                handleLetterFound(letter)
+            }
+            break;
+        default:
+            if (letter.textContent === button.id) {
+                handleLetterFound(letter)
+            }
+            break;
+    }   
     })
 
     if (!letterFound) {
@@ -27,12 +73,21 @@ function handleLetterFound(button) {
         document.getElementById('attempts').textContent = attemptsCount;
     }
 
+    handleGameEnd(attemptsCount)
+}
+
+function handleLetterFound(letter) {
+    letterFound = true;
+    letter.classList.remove('hidden');
+}
+
+function handleGameEnd(attempts) {
     if (attempts < 1) {
         alert('Perdeeeeeeeeu!')
     }
 
     if (document.querySelectorAll('.letter.hidden').length === 0) {
-        alert('Ganhouuuuuuu!')
+        alert('Acertoooô Miserávi!')
     }
 
 }
