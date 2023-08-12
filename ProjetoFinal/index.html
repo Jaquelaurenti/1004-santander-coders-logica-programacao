@@ -16,47 +16,47 @@
             <line x1="60" y1="20" x2="60" y2="230" />
             <line x1="20" y1="230" x2="100" y2="230" />
             <!---cabeça-->
-            <circle cx="140" cy="70" r="20" class="forca-parte"/>
+            <circle cx="140" cy="70" r="20" id="forca-head" class="forca-parte"/>
             <!---corpo-->
-            <line x1="140" y1="90" x2="140" y2="150" class="forca-parte"/>
+            <line x1="140" y1="90" x2="140" y2="150" id="forca-body" class="forca-parte"/>
             <!---braços-->
-            <line x1="140" y1="120" x2="120" y2="100" class="forca-parte"/>
-            <line x1="140" y1="120" x2="160" y2="100" class="forca-parte"/>
+            <line x1="140" y1="120" x2="120" y2="100" id="forca-arm-left" class="forca-parte"/>
+            <line x1="140" y1="120" x2="160" y2="100" id="forca-arm-right" class="forca-parte"/>
             <!---pernas-->
-            <line x1="140" y1="150" x2="120" y2="180" class="forca-parte"/>
-            <line x1="140" y1="150" x2="160" y2="180" class="forca-parte"/>
+            <line x1="140" y1="150" x2="120" y2="180" id="forca-leg-left" class="forca-parte"/>
+            <line x1="140" y1="150" x2="160" y2="180" id="forca-leg-right" class="forca-parte"/>
         </svg>
-        <h2 id="tentativas">Tentativas</h2> <!---colocar pra mostrar dinamicamente quantas tentativas faltam-->
+        <h2>Tentativas: <span id="attempts">6</span></h2> <!---colocar pra mostrar dinamicamente quantas tentativas faltam-->
     </div>
-    <div id='palavra'></div>
+    <div id="word"></div>
     <section>
-        <nav class="letras-disponiveis">
-            <button class="botao-letra" id="a">a</button>
-            <button class="botao-letra" id="b">b</button>
-            <button class="botao-letra" id="c">c</button>
-            <button class="botao-letra" id="d">d</button>
-            <button class="botao-letra" id="e">e</button>
-            <button class="botao-letra" id="f">f</button>
-            <button class="botao-letra" id="g">g</button>
-            <button class="botao-letra" id="h">h</button>
-            <button class="botao-letra" id="i">i</button>
-            <button class="botao-letra" id="j">j</button>
-            <button class="botao-letra" id="k">k</button>
-            <button class="botao-letra" id="l">l</button>
-            <button class="botao-letra" id="m">m</button>
-            <button class="botao-letra" id="n">n</button>
-            <button class="botao-letra" id="o">o</button>
-            <button class="botao-letra" id="p">p</button>
-            <button class="botao-letra" id="q">q</button>
-            <button class="botao-letra" id="r">r</button>
-            <button class="botao-letra" id="s">s</button>
-            <button class="botao-letra" id="t">t</button>
-            <button class="botao-letra" id="u">u</button>
-            <button class="botao-letra" id="v">v</button>
-            <button class="botao-letra" id="w">w</button>
-            <button class="botao-letra" id="x">x</button>
-            <button class="botao-letra" id="y">y</button>
-            <button class="botao-letra" id="z">z</button>
+        <nav class="letters">
+            <button type="button" class="letter-button" id="a">a</button>
+            <button type="button" class="letter-button" id="b">b</button>
+            <button type="button" class="letter-button" id="c">c</button>
+            <button type="button" class="letter-button" id="d">d</button>
+            <button type="button" class="letter-button" id="e">e</button>
+            <button type="button" class="letter-button" id="f">f</button>
+            <button type="button" class="letter-button" id="g">g</button>
+            <button type="button" class="letter-button" id="h">h</button>
+            <button type="button" class="letter-button" id="i">i</button>
+            <button type="button" class="letter-button" id="j">j</button>
+            <button type="button" class="letter-button" id="k">k</button>
+            <button type="button" class="letter-button" id="l">l</button>
+            <button type="button" class="letter-button" id="m">m</button>
+            <button type="button" class="letter-button" id="n">n</button>
+            <button type="button" class="letter-button" id="o">o</button>
+            <button type="button" class="letter-button" id="p">p</button>
+            <button type="button" class="letter-button" id="q">q</button>
+            <button type="button" class="letter-button" id="r">r</button>
+            <button type="button" class="letter-button" id="s">s</button>
+            <button type="button" class="letter-button" id="t">t</button>
+            <button type="button" class="letter-button" id="u">u</button>
+            <button type="button" class="letter-button" id="v">v</button>
+            <button type="button" class="letter-button" id="w">w</button>
+            <button type="button" class="letter-button" id="x">x</button>
+            <button type="button" class="letter-button" id="y">y</button>
+            <button type="button" class="letter-button" id="z">z</button>
         </nav>
     </section>
     <script type="module" src="js/script.js"></script>

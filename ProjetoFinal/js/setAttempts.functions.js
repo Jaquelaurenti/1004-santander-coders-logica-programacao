@@ -1,16 +1,11 @@
-let errorCount = parseInt(document.querySelector('.errors').textContent);
-let attemptsCount = parseInt(document.querySelector('.attempts').textContent);
+let attemptsCount = parseInt(document.getElementById('attempts').textContent);
 
 export function setAttempts() {
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
             button.disabled = true;
 
-            attemptsCount++
-            document.querySelector('.attempts').textContent = attemptsCount;
-
             handleLetterFound(button);
-
         });
     });
 
@@ -27,16 +22,18 @@ function handleLetterFound(button) {
     })
 
     if (!letterFound) {
-        errorCount++;
-        document.querySelector('.errors').textContent = errorCount;
+        attemptsCount--;
+
+        document.getElementById('attempts').textContent = attemptsCount;
     }
 
-    if (errorCount > 5) {
-        console.log('Lost game')
+    if (attempts < 1) {
+        alert('Perdeeeeeeeeu!')
+        window.location.reload();
     }
 
-    /* if no longer hidden letters */
     if (document.querySelectorAll('.letter.hidden').length === 0) {
-        console.log('Win game')
+        alert('Ganhouuuuuuu!')
     }
+
 }

@@ -1,4 +1,4 @@
-import { createGame } from '/ProjetoFinal/js/createGame.function.js';
+import { createGame } from './createGame.function.js';
 
 let isGameRunning = false;
 
