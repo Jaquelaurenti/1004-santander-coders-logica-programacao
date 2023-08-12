@@ -1,4 +1,4 @@
-function getWord() {
+export function getWord() {
     const lengthyWords = [
         'anticonstitucionalissimamente',
         'inconstitucionalissimamente',
@@ -50,5 +50,3 @@ function getWord() {
     return randomWord;    
 
 }
-
-export { getWord };
