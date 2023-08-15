@@ -113,10 +113,47 @@ function ordenarListaNumerica(lista) {
     // https://www.freecodecamp.org/news/how-does-the-javascript-sort-function-work/
     return lista.sort((a,b) => a - b);
 }
-console.log(ordenarListaNumerica([1, 89, 2, 3, 5, 144, 13, 21, -1, 34, 55, 8]));
+// console.log(ordenarListaNumerica([1, 89, 2, 3, 5, 144, 13, 21, -1, 34, 55, 8]));
 
 /* 16. Escreva uma função que retorne o número de dias entre duas datas. */
+function calculaQuantosDiasEntre(data1, data2) {
+    const dataInicial = new Date(data1);
+    const dataFinal = new Date(data2);
+    const dataDiferenca = Math.abs(dataFinal.getTime() - dataInicial.getTime());
+ 
+    return Math.ceil(dataDiferenca / (1000 * 3600 * 24));
+}
+// console.log(calculaQuantosDiasEntre('09-Feb-1984', '15-Aug-2023')) //14432
+
 /* 17. Crie uma função que calcule o raio de um círculo com base em sua área. */
+function raioCirculo(area) {
+    return Math.sqrt(area / Math.PI); // areaCirculo = pi * (raio ** 2)
+}    
+// console.log(raioCirculo(1728)); // 23.45 - toFixed(2)
+
 /* 18. Escreva uma função que encontre o segundo maior valor em um array de números. */
+function segundoMaiorValorLista(lista) {
+    listaOrdenadaDesc = ordenarListaNumerica(lista).reverse();
+    return listaOrdenadaDesc[1]
+}
+// console.log(segundoMaiorValorLista([1, 89, 2, 3, 5, 144, 13, 21, -1, 34, 55, 8])); // 89
+
 /* 19. Crie uma função que converta um valor em dólares para outra moeda com base em uma taxa de câmbio. */
+const cambio = [
+    { BRL: 0.20 },
+    { EUR: 0.78 },
+    { CNY: 7.2835 }
+];
+function converterDolarParaMoeda(valor, moeda) {
+    return valor * cambio.find(elemento => elemento[moeda])[moeda];
+}
+// console.log(converterDolarParaMoeda(100, 'CNY')); // 728.35 Yuan
+
 /* 20. Escreva uma função que verifique se duas strings são anagramas (contêm as mesmas letras, mas em ordens diferentes). */
+function isAnagrama(primeiraPalavra, segundaPalavra) {
+    const primeiraPalavraOrdenada = primeiraPalavra.split('').sort().join('');
+    const segundaPalavraOrdenada = segundaPalavra.split('').sort().join('');
+    return primeiraPalavraOrdenada === segundaPalavraOrdenada;
+}
+// console.log(isAnagrama('roma', 'amor')); // true
+// console.log(isAnagrama('gaga', 'ohla')); // false
