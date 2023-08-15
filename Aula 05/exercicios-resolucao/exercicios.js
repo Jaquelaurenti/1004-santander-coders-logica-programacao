@@ -141,3 +141,26 @@ function getFibonacciWhile(number) {
 console.log(getFibonacciWhile(1000)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
 
 
+function getPrimosAte(number) {
+  const start = performance.now(); // abre o cronometro
+  let primos = [];
+
+  for (let i = 2; i <= number; i++) {
+      let divisores = 0;
+      primos.forEach((primo) => { // Todo número inteiro é composto por fatores primos...
+          if (divisores < 1 && i % primo === 0) { 
+              divisores++;
+          }
+      });
+
+      if (divisores === 0) { // ... ou ele mesmo é primo
+          primos.push(i);
+      }
+  }
+
+  const end = performance.now(); // fecha o cronometro
+  console.log(`Execution time: ${Math.round(end - start)} ms`); // imprime o tempo de execução
+  
+  return primos;
+}
+console.log(getPrimosAte(1000)); //Execution time: 1325 ms
