@@ -53,6 +53,53 @@ section {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
   background-color: lightgray;
+}
+
+#reset {
+  padding: 0.5rem;
+  margin-top: 20px;
+  min-width: 8rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#reset:hover {
+  background-color: white;
+  color: black;
+}
+
+#reset:disabled,
+#reset:disabled:hover {
+  background-color: white;
+  color: lightgray;
+  cursor: not-allowed;
+}
+
+#reset::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+#reset:hover::before {
+  transform: translateX(100%);
 }
