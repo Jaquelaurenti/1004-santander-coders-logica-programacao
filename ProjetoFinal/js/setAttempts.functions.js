@@ -1,3 +1,5 @@
+import {setGameEnd} from './setGameEnd.function.js';
+
 let attemptsCount = parseInt(document.getElementById('attempts').textContent);
 let letterFound = false;
 
@@ -65,7 +67,7 @@ function handleLetter(button) {
         handleLetterNotFound()
     }
 
-    handleGameEnd(attemptsCount)
+    setGameEnd(attemptsCount)
 }
 
 function handleLetterNotFound() {
@@ -79,16 +81,5 @@ function handleLetterNotFound() {
 function handleLetterFound(letter) {
     letterFound = true;
     letter.classList.remove('hidden');
-
-}
-
-function handleGameEnd(attempts) {
-    if (attempts < 1) {
-        alert('Perdeeeeeeeeu!')
-    }
-
-    if (document.querySelectorAll('.letter.hidden').length === 0) {
-        alert('Acertoooô Miserávi!')
-    }
 
 }
