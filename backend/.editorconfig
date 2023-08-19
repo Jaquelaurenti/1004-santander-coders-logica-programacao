@@ -1,0 +1,26 @@
+# Arquivo .editorconfig
+
+# Definindo o charset (conjunto de caracteres)
+[*]
+charset = utf-8
+
+# Estilo de fim de linha (newline)
+[*]
+end_of_line = lf
+
+# Estilo de identação
+[*]
+indent_style = space
+indent_size = 2
+
+# Ignorar espaços em branco no final da linha
+[*]
+trim_trailing_whitespace = true
+
+# Adicionar uma nova linha no final do arquivo
+[*]
+insert_final_newline = true
+
+# Configurações específicas para arquivos JavaScript
+[*.js]
+indent_size = 2
