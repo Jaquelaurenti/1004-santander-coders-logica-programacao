@@ -18,11 +18,11 @@ Aqui estão as diretrizes para a implementação do jogo:
 
 ## Dicas e Desafios:
 
-[  ] Divida a implementação do jogo em funções para tornar o código mais organizado e modular.
+[ X ] Divida a implementação do jogo em funções para tornar o código mais organizado e modular.
 
-[  ] Considere como lidar com letras repetidas na palavra escolhida.
+[ X ] Considere como lidar com letras repetidas na palavra escolhida.
 
-[  ] Use arrays para rastrear as letras adivinhadas e a posição delas na palavra.
+[ X ] Use arrays para rastrear as letras adivinhadas e a posição delas na palavra.
 
 [  ] Dê estilo ao jogo usando CSS para melhorar a experiência visual. (OPCIONAL)
 

@@ -1,6 +1,4 @@
-/** Given a list of lengthy words, returns a random word from the list.
-* @returns {string} a random word from the lengthyWords list
-*/
+/** @returns {string} {@link randomWord} from the {@link lengthyWords} list. */
 export function getWord() {
     const lengthyWords = [
         'anticonstitucionalissimamente',
@@ -47,9 +45,7 @@ export function getWord() {
         'inconstitucionalissimamente',
         'proparoxítonas'
     ];
-    
     const randomIndex = Math.floor(Math.random() * lengthyWords.length);
-    const randomWord = lengthyWords[randomIndex];
+    const randomWord = lengthyWords[randomIndex];  
     return randomWord;    
-
 }

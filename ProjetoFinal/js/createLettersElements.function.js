@@ -1,6 +1,6 @@
 /** Create DOM container and text elements for each letter of the word
  * @param {string} word - the word to be guessed
- * @returns {HTMLDivElement} wordDiv - the DOM container for the letters
+ * @returns {HTMLDivElement} {@link wordDiv}: the DOM container for the letters
  */
 export function createLettersElements(word) {
     const wordDiv = document.getElementById('word');
