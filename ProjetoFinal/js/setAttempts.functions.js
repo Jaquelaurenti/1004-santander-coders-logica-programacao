@@ -3,6 +3,10 @@ import {setGameEnd} from './setGameEnd.function.js';
 let attemptsCount = parseInt(document.getElementById('attempts').textContent);
 let letterFound = false;
 
+/**
+ * Set the attempts count and the event listener for the letter buttons
+ * @returns {number} {@link attemptsCount} - The number of attempts
+*/
 export function setAttempts() {
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
@@ -16,6 +20,12 @@ export function setAttempts() {
     return attemptsCount;
 }
 
+/** 
+ * 1) Receives a letter button; 2) checks if word includes it or not and:
+ * 2a) invokes {@link handleLetterFound()} if includes, or 2b) invokes {@link handleLetterNotFound()} if not;
+ * 3) finishes invoking the {@link setGameEnd()} function.
+ * @param {HTMLElement} button - The letter button
+ */
 function handleLetter(button) { 
     document.querySelectorAll('.letter').forEach(letter => {
         switch (letter.textContent) {
@@ -69,7 +79,7 @@ function handleLetter(button) {
 
     setGameEnd(attemptsCount)
 }
-
+/** Decreases the attempts count and shows the body part */
 function handleLetterNotFound() {
     attemptsCount--;
     document.getElementById('attempts').textContent = attemptsCount;
@@ -78,8 +88,11 @@ function handleLetterNotFound() {
     bodyParts[attemptsCount].classList.remove('hidden')
 }
 
+/**
+ * Shows the found letter text element in the word container
+ * @param {HTMLElement} letter - The letter element
+ */
 function handleLetterFound(letter) {
     letterFound = true;
     letter.classList.remove('hidden');
-
 }

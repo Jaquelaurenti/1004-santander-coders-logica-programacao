@@ -3,6 +3,10 @@ import { getWord } from './getWord.function.js';
 import { setAttempts } from './setAttempts.functions.js';
 import { setCookie, getCookie } from './setGameRecords.function.js';
 
+
+/** This function creates the game, when the page finishs the DOM loading
+ * @return {boolean} true if the game was created successfully
+ */
 export function createGame() {
     const word = getWord();
     if (!word) {

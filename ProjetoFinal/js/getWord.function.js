@@ -1,3 +1,6 @@
+/** Given a list of lengthy words, returns a random word from the list.
+* @returns {string} a random word from the lengthyWords list
+*/
 export function getWord() {
     const lengthyWords = [
         'anticonstitucionalissimamente',
